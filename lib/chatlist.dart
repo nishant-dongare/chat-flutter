@@ -34,7 +34,7 @@ class ChatList extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => ChatScreen(),
+                          builder: (context) => const ChatScreen(),
                         ),
                       );
                     }

@@ -15,7 +15,7 @@ class WebChatScreen extends StatelessWidget {
     return Column(
       children: [
         AppBar(
-          backgroundColor: Theme.of(context).primaryColorDark,
+          // backgroundColor: Theme.of(context).primaryColorDark,
           leading: Padding(
             padding: const EdgeInsets.all(8.0),
             child: getAvatar(info[index]['profilePic'].toString()),

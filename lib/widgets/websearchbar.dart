@@ -21,7 +21,7 @@ class WebSearchBar extends StatelessWidget {
             ),
           ),
           hintText: 'Search a chat',
-          hintStyle: const TextStyle(fontSize: 14),
+          hintStyle: TextStyle(fontSize: 14, color: Colors.grey[700]),
           prefixIcon: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: Icon(

@@ -22,7 +22,7 @@ class ChatBody extends StatelessWidget {
               time: messages[i]['time'].toString(),
             );
           }
-          return ChatCard(
+          return card(
             msg: messages[i]['text'].toString(),
             time: messages[i]['time'].toString(),
           );

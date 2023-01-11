@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hike/chatlist.dart';
+import 'package:hike/providers/webprovider.dart';
+import 'package:provider/provider.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -27,6 +29,14 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
           ),
           actions: [
+            IconButton(
+              icon: context.watch<WebProvider>().getTheme
+                  ? const Icon(Icons.light_mode_sharp)
+                  : const Icon(Icons.dark_mode_sharp),
+              onPressed: () {
+                context.read<WebProvider>().setTheme();
+              },
+            ),
             IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
             IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert)),
           ],

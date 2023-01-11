@@ -1,6 +1,6 @@
 const info = [
   {
-    'name': 'Rivaan Ranawat',
+    'name': 'Elon Musk',
     'message': 'Hey, how are you doing?',
     'time': '3:53 pm',
     'profilePic':
@@ -72,6 +72,8 @@ const info = [
 ];
 
 const messages = [
+  {"isMe": true, "text": "2 Khoka parcel at kalyan"},
+  {"isMe": false, "text": "Ok BOSS!"},
   {"isMe": false, "text": "Hey What is up with you!!", "time": "10:00 am"},
   {"isMe": true, "text": "im fine,wbu?", "time": "11:00 am"},
   {"isMe": false, "text": "I am great man!", "time": "11:01 am"},

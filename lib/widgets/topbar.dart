@@ -28,10 +28,11 @@ class Topbar extends StatelessWidget {
           ),
           const Spacer(),
           IconButton(
-              icon: themeIcon,
-              onPressed: () {
-                context.read<WebProvider>().setTheme();
-              }),
+            icon: themeIcon,
+            onPressed: () {
+              context.read<WebProvider>().setTheme();
+            },
+          ),
           IconButton(onPressed: () {}, icon: const Icon(Icons.comment)),
           IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert)),
         ],

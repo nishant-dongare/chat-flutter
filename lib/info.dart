@@ -7,35 +7,35 @@ const info = [
         'https://upload.wikimedia.org/wikipedia/commons/8/85/Elon_Musk_Royal_Society_%28crop1%29.jpg',
   },
   {
-    'name': 'John Doe',
-    'message': 'Hello, whats up',
+    'name': 'L',
+    'message': 'I am L',
     'time': '2:25 pm',
     'profilePic':
         'https://www.socialketchup.in/wp-content/uploads/2020/05/fi-vill-JOHN-DOE.jpg',
   },
   {
-    'name': 'Naman Ranawat',
-    'message': 'Hello, I want to sleep.',
+    'name': 'Akatsuki',
+    'message': 'This world shal know the PAIN',
     'time': '1:03 pm',
     'profilePic':
         'https://media.cntraveler.com/photos/60596b398f4452dac88c59f8/16:9/w_3999,h_2249,c_limit/MtFuji-GettyImages-959111140.jpg',
   },
   {
-    'name': 'Dad',
-    'message': 'Call me, have some work',
+    'name': 'Lelouch vi Britannia',
+    'message': '',
     'time': '12:06 pm',
     'profilePic':
         'https://pbs.twimg.com/profile_images/1419974913260232732/Cy_CUavB.jpg',
   },
   {
-    'name': 'Mom',
+    'name': 'Shisui Uchiha',
     'message': 'You ate food?',
     'time': '10:00 am',
     'profilePic':
         'https://uploads.dailydot.com/2018/10/olli-the-polite-cat.jpg?auto=compress%2Cformat&ixlib=php-3.3.0',
   },
   {
-    'name': 'Jurica',
+    'name': 'Madara Uchiha',
     'message': 'Yo!!!!! Long time, no see!?',
     'time': '9:53 am',
     'profilePic':
@@ -72,7 +72,7 @@ const info = [
 ];
 
 const messages = [
-  {"isMe": true, "text": "2 Khoka parcel at kalyan"},
+  {"isMe": true, "text": "2 Khoka parcel"},
   {"isMe": false, "text": "Ok BOSS!"},
   {"isMe": false, "text": "Hey What is up with you!!", "time": "10:00 am"},
   {"isMe": true, "text": "im fine,wbu?", "time": "11:00 am"},

@@ -47,12 +47,14 @@ class ChatList extends StatelessWidget {
                       subtitle: Padding(
                         padding: const EdgeInsets.only(top: 6),
                         child: Text(info[index]['message'].toString(),
-                            style: const TextStyle(fontSize: 18)),
+                            style: const TextStyle(fontSize: 14)),
                       ),
                       leading: getAvatar(info[index]['profilePic'].toString()),
-                      trailing: Text(info[index]['time'].toString(),
-                          style: const TextStyle(
-                              fontSize: 13, color: Colors.grey)),
+                      trailing: Text(
+                        info[index]['time'].toString(),
+                        style:
+                            const TextStyle(fontSize: 13, color: Colors.grey),
+                      ),
                     ),
                   ),
                 ),

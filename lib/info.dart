@@ -39,7 +39,7 @@ const info = [
     'message': 'Yo!!!!! Long time, no see!?',
     'time': '9:53 am',
     'profilePic':
-        'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmFuZG9tJTIwcGVvcGxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=900&q=60',
+        'https://raw.githubusercontent.com/nishant-dongare/Chat-flutter/master/assets/madara.webp?token=GHSAT0AAAAAAB5MPXWIDRBYPO2WIEG3XWJIY572GLQ',
   },
   {
     'name': 'Albert Dera',

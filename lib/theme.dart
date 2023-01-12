@@ -47,18 +47,6 @@ ThemeData darkTheme = ThemeData(
       borderSide: const BorderSide(width: 0, style: BorderStyle.none),
     ),
   ),
-
   cardTheme: CardTheme(color: Colors.grey[800]),
   cardColor: Colors.blueGrey,
-
-  // primaryColor: Colors.grey[800],
-  // primaryColorDark: Colors.grey[900],
-  // dividerColor: Colors.grey,
-  // primaryColorLight: Colors.grey[900],
-  // primaryIconTheme: const IconThemeData(color: Colors.black),
-  // iconTheme: const IconThemeData(color: Colors.white70),
-  // cardColor: Colors.greenAccent[800],
-  // floatingActionButtonTheme: FloatingActionButtonThemeData(
-  //   backgroundColor: Colors.grey[900],
-  // ),
 );

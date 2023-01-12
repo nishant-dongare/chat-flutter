@@ -5,14 +5,13 @@ class InputBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Color color = Theme.of(context).scaffoldBackgroundColor;
     return Container(
-      height: 60,
       padding: const EdgeInsets.all(10),
-      decoration: const BoxDecoration(
-        border: Border(
-          bottom: BorderSide(color: Colors.grey),
-        ),
-        // borderRadius: BorderRadius.all(Radius.circular(20)),
+      decoration: BoxDecoration(
+        gradient:
+            LinearGradient(stops: const [0.02, 0.02], colors: [color, color]),
+        borderRadius: const BorderRadius.all(Radius.circular(30)),
       ),
       child: Row(
         children: [

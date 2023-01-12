@@ -40,7 +40,7 @@ ThemeData darkTheme = ThemeData(
   primaryIconTheme: const IconThemeData(color: Colors.black),
   inputDecorationTheme: InputDecorationTheme(
     filled: true,
-    fillColor: Colors.grey[900],
+    fillColor: Colors.grey[800],
     hintStyle: const TextStyle(color: Colors.grey),
     border: OutlineInputBorder(
       borderRadius: BorderRadius.circular(20),

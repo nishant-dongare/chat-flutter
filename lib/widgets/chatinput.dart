@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:hike/providers/webprovider.dart';
+import 'package:provider/provider.dart';
 
 class InputBar extends StatelessWidget {
   const InputBar({super.key});
 
   @override
   Widget build(BuildContext context) {
-    Color color = Theme.of(context).scaffoldBackgroundColor;
+    Color color = Theme.of(context).primaryColor;
+    Color? iconColor =
+        context.watch<WebProvider>().getTheme ? null : Colors.grey[800];
     return Container(
       padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
@@ -16,12 +20,14 @@ class InputBar extends StatelessWidget {
       child: Row(
         children: [
           IconButton(
+            color: iconColor,
             onPressed: () {},
             icon: const Icon(
               Icons.emoji_emotions_outlined,
             ),
           ),
           IconButton(
+            color: iconColor,
             onPressed: () {},
             icon: const Icon(
               Icons.attach_file,
@@ -39,8 +45,11 @@ class InputBar extends StatelessWidget {
             ),
           ),
           IconButton(
+            color: iconColor,
             onPressed: () {},
-            icon: const Icon(Icons.send),
+            icon: const Icon(
+              Icons.send,
+            ),
           ),
         ],
       ),

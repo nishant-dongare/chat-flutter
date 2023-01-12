@@ -27,7 +27,7 @@ class WebSearchBar extends StatelessWidget {
             child: Icon(
               Icons.search,
               size: 20,
-              color: Theme.of(context).primaryIconTheme.color,
+              color: Theme.of(context).primaryColorDark,
             ),
           ),
         ),

@@ -11,7 +11,7 @@ ThemeData theme = ThemeData(
   primaryColorDark: Colors.red,
   primaryColorLight: const Color(0xFFFFCCCB),
   dividerColor: Colors.grey,
-  primaryIconTheme: const IconThemeData(color: Colors.red),
+  primaryIconTheme: IconThemeData(color: Colors.grey[800]),
   iconTheme: const IconThemeData(color: Colors.white),
   inputDecorationTheme: InputDecorationTheme(
     filled: true,
@@ -37,7 +37,7 @@ ThemeData darkTheme = ThemeData(
     backgroundColor: Colors.grey[800],
     splashColor: Colors.grey[900],
   ),
-  primaryIconTheme: const IconThemeData(color: Colors.black),
+  primaryIconTheme: const IconThemeData(color: Colors.white),
   inputDecorationTheme: InputDecorationTheme(
     filled: true,
     fillColor: Colors.grey[800],

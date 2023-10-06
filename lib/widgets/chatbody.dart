@@ -15,17 +15,11 @@ class ChatBody extends StatelessWidget {
         shrinkWrap: true,
         padding: const EdgeInsets.symmetric(horizontal: 10),
         itemBuilder: ((context, i) {
-          if (messages[i]['isMe'] == true) {
-            return ChatCard(
-              isCurrentUser: true,
-              msg: messages[i]['text'].toString(),
-              time: messages[i]['time'].toString(),
-            );
-          }
-          return card(
+          return ChatCard(
+            user: messages[i]['user']==true,
             msg: messages[i]['text'].toString(),
             time: messages[i]['time'].toString(),
-          );
+            );
         }),
       ),
     );

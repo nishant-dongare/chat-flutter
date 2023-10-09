@@ -11,7 +11,7 @@ const info = [
     'message': 'I am L',
     'time': '2:25 pm',
     'profilePic':
-        'https://www.socialketchup.in/wp-content/uploads/2020/05/fi-vill-JOHN-DOE.jpg',
+        'https://github.com/nishant-dongare/assets/blob/main/l.jpeg?raw=true',
   },
   {
     'name': 'Akatsuki',
@@ -25,7 +25,7 @@ const info = [
     'message': '',
     'time': '12:06 pm',
     'profilePic':
-        'https://pbs.twimg.com/profile_images/1419974913260232732/Cy_CUavB.jpg',
+        'https://raw.githubusercontent.com/nishant-dongare/assets/main/lelouch.webp'
   },
   {
     'name': 'Shisui Uchiha',
@@ -39,7 +39,7 @@ const info = [
     'message': 'Yo!!!!! Long time, no see!?',
     'time': '9:53 am',
     'profilePic':
-        'https://raw.githubusercontent.com/nishant-dongare/Chat-flutter/master/assets/madara.webp?token=GHSAT0AAAAAAB5MPXWIDRBYPO2WIEG3XWJIY572GLQ',
+        'https://raw.githubusercontent.com/nishant-dongare/assets/main/madara.webp',
   },
   {
     'name': 'Albert Dera',

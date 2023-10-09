@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hike/layout.dart';
+import 'package:hike/pages/login.dart';
 import 'package:hike/providers/webprovider.dart';
 import 'package:hike/theme.dart';
 import 'package:provider/provider.dart';
@@ -12,6 +13,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -22,7 +24,11 @@ class MyApp extends StatelessWidget {
       themeMode: context.watch<WebProvider>().getTheme
           ? ThemeMode.dark
           : ThemeMode.light,
-      home: const ResponsiveLayout(),
+      initialRoute: 'login',
+      routes: {
+        '/': (context) => const ResponsiveLayout(),
+        'login': (context) => const Login(),
+      },
     );
   }
 }

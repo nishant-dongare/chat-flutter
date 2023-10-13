@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 
 class ChatList extends StatelessWidget {
   final bool webview;
+
   const ChatList({this.webview = false, Key? key}) : super(key: key);
 
   @override
@@ -22,7 +23,6 @@ class ChatList extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.only(top: 10),
         child: ListView.builder(
-          shrinkWrap: true,
           itemCount: info.length,
           itemBuilder: (context, index) {
             return Column(

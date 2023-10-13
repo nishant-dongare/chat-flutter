@@ -10,16 +10,15 @@ class ChatBody extends StatelessWidget {
     return Container(
       color: Theme.of(context).primaryColorLight,
       child: ListView.builder(
+        padding: const EdgeInsets.only(bottom: 60, left: 10, right: 10),
         itemCount: messages.length,
         primary: false,
-        shrinkWrap: true,
-        padding: const EdgeInsets.symmetric(horizontal: 10),
         itemBuilder: ((context, i) {
           return ChatCard(
-            user: messages[i]['user']==true,
+            user: messages[i]['user'] == true,
             msg: messages[i]['text'].toString(),
             time: messages[i]['time'].toString(),
-            );
+          );
         }),
       ),
     );

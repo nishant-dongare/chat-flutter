@@ -15,6 +15,7 @@ class ChatScreen extends StatelessWidget {
       appBar: chatAppBar(context),
       body: const ChatBody(),
       bottomNavigationBar: const InputBar(),
+      extendBody: true,
     );
   }
 

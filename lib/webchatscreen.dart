@@ -4,7 +4,6 @@ import 'package:hike/providers/webprovider.dart';
 import 'package:hike/widgets/avatar.dart';
 import 'package:hike/widgets/chatbody.dart';
 import 'package:hike/widgets/chatinput.dart';
-import 'package:hike/widgets/connection.dart';
 import 'package:provider/provider.dart';
 
 class WebChatScreen extends StatelessWidget {

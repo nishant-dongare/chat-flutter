@@ -7,7 +7,7 @@ class InputBar extends StatelessWidget {
   Widget build(BuildContext context) {
     Color color = Theme.of(context).primaryColor;
     return Container(
-      padding: const EdgeInsets.all(10),
+      padding: const EdgeInsets.all(5),
       decoration: BoxDecoration(
         gradient:
             LinearGradient(stops: const [0.02, 0.02], colors: [color, color]),

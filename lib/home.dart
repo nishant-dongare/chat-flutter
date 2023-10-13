@@ -10,7 +10,7 @@ class Home extends StatefulWidget {
   State<Home> createState() => _HomeState();
 }
 
-class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
+class _HomeState extends State<Home> {
   final List<Tab> tabs = [
     const Tab(text: 'Messages'),
     const Tab(text: 'Active'),
@@ -43,8 +43,6 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
           elevation: 0,
           bottom: TabBar(
             tabs: tabs,
-            //Flutter Bug in tabIndicator
-            // indicatorColor: Colors.transparent,
             indicator: const BoxDecoration(
               color: Colors.transparent,
             ),

@@ -9,7 +9,7 @@ class Web extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Row(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -17,13 +17,13 @@ class Web extends StatelessWidget {
             width: 350,
             child: Column(
               children: [
-                Topbar(),
-                WebSearchBar(),
+                const Topbar(),
+                const WebSearchBar(),
                 Expanded(child: ChatList(webview: true)),
               ],
             ),
           ),
-          Expanded(child: WebChatScreen()),
+          const Expanded(child: WebChatScreen()),
         ],
       ),
     );

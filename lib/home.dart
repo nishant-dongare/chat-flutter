@@ -48,13 +48,13 @@ class _HomeState extends State<Home> {
             ),
           ),
         ),
-        body: const TabBarView(
+        body: TabBarView(
           children: [
             ChatList(),
-            Center(
+            const Center(
               child: Text('Active'),
             ),
-            Center(
+            const Center(
               child: Text('Calls'),
             ),
           ],

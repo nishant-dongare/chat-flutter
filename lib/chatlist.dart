@@ -8,13 +8,17 @@ import 'package:provider/provider.dart';
 class ChatList extends StatelessWidget {
   final bool webview;
 
-  const ChatList({this.webview = false, Key? key}) : super(key: key);
+  ChatList({this.webview = false, Key? key}) : super(key: key);
+  final ScrollController _scrollController = ScrollController();
+
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Theme.of(context).primaryColor,
+        color: Theme
+            .of(context)
+            .primaryColor,
         borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(30),
           topRight: Radius.circular(30),
@@ -24,6 +28,7 @@ class ChatList extends StatelessWidget {
         padding: const EdgeInsets.only(top: 10),
         child: ListView.builder(
           itemCount: info.length,
+          controller: _scrollController,
           itemBuilder: (context, index) {
             return Column(
               children: [
@@ -53,7 +58,7 @@ class ChatList extends StatelessWidget {
                       trailing: Text(
                         info[index]['time'].toString(),
                         style:
-                            const TextStyle(fontSize: 13, color: Colors.grey),
+                        const TextStyle(fontSize: 13, color: Colors.grey),
                       ),
                     ),
                   ),

@@ -12,7 +12,6 @@ class ChatBody extends StatelessWidget {
       child: ListView.builder(
         padding: const EdgeInsets.only(bottom: 60, left: 10, right: 10),
         itemCount: messages.length,
-        primary: false,
         itemBuilder: ((context, i) {
           return ChatCard(
             user: messages[i]['user'] == true,

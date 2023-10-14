@@ -14,6 +14,10 @@ ThemeData theme = ThemeData(
   primaryIconTheme: IconThemeData(color: Colors.grey[800]),
   iconTheme: const IconThemeData(color: Colors.white),
   inputDecorationTheme: InputDecorationTheme(
+    labelStyle: const TextStyle(
+      color: Colors.redAccent,
+      fontWeight: FontWeight.bold,
+    ),
     filled: true,
     fillColor: Colors.grey[50],
     hintStyle: const TextStyle(color: Colors.grey),
@@ -24,10 +28,20 @@ ThemeData theme = ThemeData(
   ),
   cardTheme: const CardTheme(color: Colors.white),
   cardColor: Colors.green[100],
+  elevatedButtonTheme: const ElevatedButtonThemeData(
+    style: ButtonStyle(
+      backgroundColor: MaterialStatePropertyAll(Colors.red),
+      foregroundColor: MaterialStatePropertyAll(Colors.white),
+    ),
+  ),
 );
 
 ThemeData darkTheme = ThemeData(
-  colorScheme: const ColorScheme.dark(),
+  primarySwatch: Colors.grey,
+  colorScheme: const ColorScheme.dark(
+    primary: Colors.white,
+    secondary: Colors.grey,
+  ),
   scaffoldBackgroundColor: Colors.grey[800],
   appBarTheme: AppBarTheme(
     backgroundColor: Colors.grey[800],
@@ -39,6 +53,11 @@ ThemeData darkTheme = ThemeData(
   ),
   primaryIconTheme: const IconThemeData(color: Colors.white),
   inputDecorationTheme: InputDecorationTheme(
+    outlineBorder: const BorderSide(color: Colors.white),
+    labelStyle: const TextStyle(
+      color: Colors.white,
+      fontWeight: FontWeight.bold,
+    ),
     filled: true,
     fillColor: Colors.grey[800],
     hintStyle: const TextStyle(color: Colors.grey),
@@ -49,4 +68,10 @@ ThemeData darkTheme = ThemeData(
   ),
   cardTheme: CardTheme(color: Colors.grey[800]),
   cardColor: Colors.blueGrey,
+  elevatedButtonTheme: const ElevatedButtonThemeData(
+    style: ButtonStyle(
+      backgroundColor: MaterialStatePropertyAll(Colors.black),
+      foregroundColor: MaterialStatePropertyAll(Colors.white),
+    ),
+  ),
 );

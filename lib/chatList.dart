@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:hike/chatscreen.dart';
+import 'package:hike/chatScreen.dart';
 import 'package:hike/info.dart';
-import 'package:hike/providers/webprovider.dart';
+import 'package:hike/providers/webProvider.dart';
 import 'package:hike/widgets/avatar.dart';
 import 'package:provider/provider.dart';
 
@@ -11,14 +11,11 @@ class ChatList extends StatelessWidget {
   ChatList({this.webview = false, Key? key}) : super(key: key);
   final ScrollController _scrollController = ScrollController();
 
-
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Theme
-            .of(context)
-            .primaryColor,
+        color: Theme.of(context).primaryColor,
         borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(30),
           topRight: Radius.circular(30),
@@ -34,7 +31,7 @@ class ChatList extends StatelessWidget {
               children: [
                 InkWell(
                   onTap: () {
-                    context.read<WebProvider>().setIndex(index);
+                    context.read<WebProvider>().setChatIndex(index);
                     if (!webview) {
                       Navigator.push(
                         context,
@@ -58,7 +55,7 @@ class ChatList extends StatelessWidget {
                       trailing: Text(
                         info[index]['time'].toString(),
                         style:
-                        const TextStyle(fontSize: 13, color: Colors.grey),
+                            const TextStyle(fontSize: 13, color: Colors.grey),
                       ),
                     ),
                   ),

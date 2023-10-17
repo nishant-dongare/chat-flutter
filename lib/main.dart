@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:hike/layout.dart';
 import 'package:hike/pages/login.dart';
-import 'package:hike/providers/webprovider.dart';
+import 'package:hike/providers/webProvider.dart';
 import 'package:hike/theme.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  runApp(MultiProvider(providers: [
-    ChangeNotifierProvider(create: (_) => WebProvider()),
-  ], child: const MyApp()));
+  runApp(
+    MultiProvider(
+      providers: [ChangeNotifierProvider(create: (_) => WebProvider())],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {

@@ -70,7 +70,7 @@ ThemeData darkTheme = ThemeData(
   cardColor: Colors.blueGrey,
   elevatedButtonTheme: const ElevatedButtonThemeData(
     style: ButtonStyle(
-      backgroundColor: MaterialStatePropertyAll(Colors.black),
+      backgroundColor: MaterialStatePropertyAll(Colors.black26),
       foregroundColor: MaterialStatePropertyAll(Colors.white),
     ),
   ),

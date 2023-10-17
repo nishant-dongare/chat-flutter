@@ -13,7 +13,6 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     Color selectedPrimaryColor = Theme.of(context).primaryColorDark;
-    Color scaffoldColor = Theme.of(context).scaffoldBackgroundColor;
 
     return Material(
       color: selectedPrimaryColor,
@@ -48,7 +47,7 @@ class _LoginState extends State<Login> {
                   height: 400,
                   child: Column(
                     children: [
-                      const SizedBox(height: 30),
+                      const SizedBox(height: 10),
                       SizedBox(
                         height: 50,
                         child: Row(
@@ -56,7 +55,7 @@ class _LoginState extends State<Login> {
                           children: [
                             SizedBox(
                               width: 100,
-                              height: 40,
+                              height: 50,
                               child: ElevatedButton(
                                 onPressed: () => changeState(true),
                                 style: ElevatedButton.styleFrom(
@@ -67,11 +66,13 @@ class _LoginState extends State<Login> {
                                   side: BorderSide(
                                     color: selectedPrimaryColor,
                                   ),
-                                  shape: const RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.only(
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: const BorderRadius.only(
                                       topLeft: Radius.circular(20),
                                       bottomLeft: Radius.circular(20),
                                     ),
+                                    side:
+                                        BorderSide(color: selectedPrimaryColor),
                                   ),
                                 ),
                                 child: const Text(
@@ -82,7 +83,7 @@ class _LoginState extends State<Login> {
                             ),
                             SizedBox(
                               width: 100,
-                              height: 40,
+                              height: 50,
                               child: ElevatedButton(
                                 onPressed: () => changeState(false),
                                 style: ElevatedButton.styleFrom(
@@ -109,9 +110,7 @@ class _LoginState extends State<Login> {
                         ),
                       ),
                       const SizedBox(height: 40),
-                      isSelected
-                          ? login(primaryColorDark: Colors.white)
-                          : register(),
+                      isSelected ? login() : register(),
                     ],
                   ),
                 ),
@@ -123,7 +122,7 @@ class _LoginState extends State<Login> {
     );
   }
 
-  Column login({required Color primaryColorDark}) {
+  Column login() {
     return Column(
       children: [
         SizedBox(

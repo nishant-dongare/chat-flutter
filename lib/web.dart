@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hike/chatlist.dart';
-import 'package:hike/webchatscreen.dart';
+import 'package:hike/chatList.dart';
+import 'package:hike/webChatScreen.dart';
 import 'package:hike/widgets/topbar.dart';
 import 'package:hike/widgets/websearchbar.dart';
 

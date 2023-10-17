@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hike/widgets/chatbody.dart';
-import 'package:hike/widgets/chatinput.dart';
+import 'package:hike/widgets/chatBody.dart';
+import 'package:hike/widgets/chatInput.dart';
 import 'package:provider/provider.dart';
-import 'package:hike/providers/webprovider.dart';
+import 'package:hike/providers/webProvider.dart';
 import 'package:hike/widgets/avatar.dart';
 import 'package:hike/info.dart';
 
@@ -16,11 +16,12 @@ class ChatScreen extends StatelessWidget {
       body: const ChatBody(),
       bottomNavigationBar: const InputBar(),
       extendBody: true,
+      resizeToAvoidBottomInset: true,
     );
   }
 
   AppBar chatAppBar(BuildContext context) {
-    var index = context.watch<WebProvider>().index;
+    var index = context.watch<WebProvider>().chatIndex;
     return AppBar(
       leading: Row(
         children: [

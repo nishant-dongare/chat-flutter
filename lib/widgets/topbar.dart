@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:hike/providers/webprovider.dart';
+import 'package:hike/providers/webProvider.dart';
 
 class Topbar extends StatelessWidget {
   const Topbar({Key? key}) : super(key: key);
@@ -12,7 +12,7 @@ class Topbar extends StatelessWidget {
         ? const Icon(Icons.light_mode_sharp)
         : const Icon(Icons.dark_mode_sharp);
     return Container(
-      height: MediaQuery.of(context).size.height * 0.077,
+      height: 50,
       padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
         border: Border(

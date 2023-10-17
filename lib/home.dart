@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hike/chatlist.dart';
-import 'package:hike/providers/webprovider.dart';
+import 'package:hike/chatList.dart';
+import 'package:hike/providers/webProvider.dart';
 import 'package:provider/provider.dart';
 
 class Home extends StatefulWidget {

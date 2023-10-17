@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hike/info.dart';
-import 'package:hike/providers/webprovider.dart';
+import 'package:hike/providers/webProvider.dart';
 import 'package:hike/widgets/avatar.dart';
-import 'package:hike/widgets/chatbody.dart';
-import 'package:hike/widgets/chatinput.dart';
+import 'package:hike/widgets/chatBody.dart';
+import 'package:hike/widgets/chatInput.dart';
 import 'package:provider/provider.dart';
 
 class WebChatScreen extends StatelessWidget {
@@ -11,7 +11,7 @@ class WebChatScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var index = context.watch<WebProvider>().index;
+    var index = context.watch<WebProvider>().chatIndex;
     return Column(
       children: [
         AppBar(

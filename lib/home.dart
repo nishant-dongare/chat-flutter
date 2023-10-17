@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hike/chatList.dart';
+import 'package:hike/chat_list.dart';
 import 'package:hike/providers/webProvider.dart';
 import 'package:provider/provider.dart';
 
@@ -43,20 +43,14 @@ class _HomeState extends State<Home> {
           elevation: 0,
           bottom: TabBar(
             tabs: tabs,
-            indicator: const BoxDecoration(
-              color: Colors.transparent,
-            ),
+            indicator: const BoxDecoration(color: Colors.transparent),
           ),
         ),
         body: TabBarView(
           children: [
             ChatList(),
-            const Center(
-              child: Text('Active'),
-            ),
-            const Center(
-              child: Text('Calls'),
-            ),
+            const Center(child: Text('Active')),
+            const Center(child: Text('Calls')),
           ],
         ),
         floatingActionButton: const FloatingActionButton(

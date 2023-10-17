@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hike/chatList.dart';
-import 'package:hike/webChatScreen.dart';
+import 'package:hike/chat_list.dart';
+import 'package:hike/web_chat_screen.dart';
 import 'package:hike/widgets/topbar.dart';
-import 'package:hike/widgets/websearchbar.dart';
+import 'package:hike/widgets/web_searchbar.dart';
 
 class Web extends StatelessWidget {
   const Web({Key? key}) : super(key: key);
@@ -19,7 +19,7 @@ class Web extends StatelessWidget {
               children: [
                 const Topbar(),
                 const WebSearchBar(),
-                Expanded(child: ChatList(webview: true)),
+                Expanded(child: ChatList(webView: true)),
               ],
             ),
           ),

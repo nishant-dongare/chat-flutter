@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:hike/chat_screen.dart';
 import 'package:hike/info.dart';
-import 'package:hike/providers/webProvider.dart';
+import 'package:hike/providers/web_provider.dart';
 import 'package:hike/widgets/avatar.dart';
 import 'package:provider/provider.dart';
 
 class ChatList extends StatelessWidget {
   final bool webView;
 
-  ChatList({this.webView = false, Key? key}) : super(key: key);
+  ChatList({this.webView = false, super.key});
+
   final ScrollController _scrollController = ScrollController();
 
   @override

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:hike/chat_list.dart';
-import 'package:hike/providers/webProvider.dart';
+import 'package:hike/providers/web_provider.dart';
 import 'package:provider/provider.dart';
 
 class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
+  const Home({super.key});
 
   @override
   State<Home> createState() => _HomeState();

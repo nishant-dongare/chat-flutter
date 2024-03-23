@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hike/layout.dart';
 import 'package:hike/pages/login.dart';
-import 'package:hike/providers/webProvider.dart';
+import 'package:hike/providers/web_provider.dart';
 import 'package:hike/theme.dart';
+import 'package:hike/widgets/toggle_button.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -15,7 +16,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +32,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => const ResponsiveLayout(),
         'login': (context) => const Login(),
+        'test': (context) => const ToggleButton(),
       },
     );
   }

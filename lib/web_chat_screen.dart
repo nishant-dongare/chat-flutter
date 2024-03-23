@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hike/info.dart';
-import 'package:hike/providers/webProvider.dart';
+import 'package:hike/providers/web_provider.dart';
 import 'package:hike/widgets/avatar.dart';
 import 'package:hike/widgets/chat_body.dart';
 import 'package:hike/widgets/chat_input.dart';

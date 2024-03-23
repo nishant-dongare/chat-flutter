@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:hike/providers/webProvider.dart';
+import 'package:hike/providers/web_provider.dart';
 
 class Topbar extends StatelessWidget {
-  const Topbar({Key? key}) : super(key: key);
+  const Topbar({super.key});
 
   @override
   Widget build(BuildContext context) {

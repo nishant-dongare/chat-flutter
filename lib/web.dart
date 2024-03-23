@@ -5,7 +5,7 @@ import 'package:hike/widgets/topbar.dart';
 import 'package:hike/widgets/web_searchbar.dart';
 
 class Web extends StatelessWidget {
-  const Web({Key? key}) : super(key: key);
+  const Web({super.key});
 
   @override
   Widget build(BuildContext context) {

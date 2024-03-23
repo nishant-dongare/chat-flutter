@@ -1,21 +1,14 @@
 const info = [
   {
-    'name': 'Elon Musk',
+    'name': 'John Doe',
     'message': 'Hey, how are you doing?',
     'time': '3:53 pm',
     'profilePic':
         'https://upload.wikimedia.org/wikipedia/commons/8/85/Elon_Musk_Royal_Society_%28crop1%29.jpg',
   },
   {
-    'name': 'L',
-    'message': 'I am L',
-    'time': '2:25 pm',
-    'profilePic':
-        'https://github.com/nishant-dongare/assets/blob/main/l.jpeg?raw=true',
-  },
-  {
     'name': 'Akatsuki',
-    'message': 'This world shal know the PAIN',
+    'message': 'This world shall know the PAIN',
     'time': '1:03 pm',
     'profilePic':
         'https://media.cntraveler.com/photos/60596b398f4452dac88c59f8/16:9/w_3999,h_2249,c_limit/MtFuji-GettyImages-959111140.jpg',
@@ -72,9 +65,9 @@ const info = [
 ];
 
 const messages = [
-  {"user": true, "text": "2 Khoka parcel"},
-  {"user": false, "text": "Ok BOSS!"},
-  {"user": false, "text": "Hey What is up with you!!", "time": "10:00 am"},
+  {"user": true, "text": "hiiiie"},
+  {"user": false, "text": "hi"},
+  {"user": false, "text": "What is up with you!!", "time": "10:00 am"},
   {"user": true, "text": "im fine,wbu?", "time": "11:00 am"},
   {"user": false, "text": "I am great man!", "time": "11:01 am"},
   {

@@ -47,66 +47,16 @@ class _LoginState extends State<Login> {
                   height: 400,
                   child: Column(
                     children: [
-                      const SizedBox(height: 10),
+                      const SizedBox(height: 40),
                       SizedBox(
+                        width: 215,
                         height: 50,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            SizedBox(
-                              width: 100,
-                              height: 50,
-                              child: ElevatedButton(
-                                onPressed: () => changeState(true),
-                                style: ElevatedButton.styleFrom(
-                                  foregroundColor:
-                                      isSelected ? null : selectedPrimaryColor,
-                                  backgroundColor:
-                                      isSelected ? null : Colors.white,
-                                  side: BorderSide(
-                                    color: selectedPrimaryColor,
-                                  ),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: const BorderRadius.only(
-                                      topLeft: Radius.circular(20),
-                                      bottomLeft: Radius.circular(20),
-                                    ),
-                                    side:
-                                        BorderSide(color: selectedPrimaryColor),
-                                  ),
-                                ),
-                                child: const Text(
-                                  "Sign In",
-                                  style: TextStyle(fontSize: 18),
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              width: 100,
-                              height: 50,
-                              child: ElevatedButton(
-                                onPressed: () => changeState(false),
-                                style: ElevatedButton.styleFrom(
-                                  foregroundColor:
-                                      isSelected ? selectedPrimaryColor : null,
-                                  backgroundColor:
-                                      isSelected ? Colors.white : null,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: const BorderRadius.only(
-                                      topRight: Radius.circular(20),
-                                      bottomRight: Radius.circular(20),
-                                    ),
-                                    side:
-                                        BorderSide(color: selectedPrimaryColor),
-                                  ),
-                                ),
-                                child: const Text(
-                                  "Sign Up",
-                                  style: TextStyle(fontSize: 18),
-                                ),
-                              ),
-                            ),
-                          ],
+                        child: Stack(
+                          children: alignList(
+                            isSelected: isSelected,
+                            selectedPrimaryColor:
+                                Theme.of(context).primaryColorDark,
+                          ),
                         ),
                       ),
                       const SizedBox(height: 40),
@@ -267,5 +217,59 @@ class _LoginState extends State<Login> {
     setState(() {
       this.isSelected = isSelected;
     });
+  }
+
+  List<Align> alignList(
+      {required bool isSelected, required Color selectedPrimaryColor}) {
+    Align a1 = Align(
+      alignment: Alignment.centerRight,
+      widthFactor: 400,
+      child: ElevatedButton(
+        onPressed: () {
+          changeState(false);
+        },
+        style: ElevatedButton.styleFrom(
+          fixedSize: const Size(120, 40),
+          foregroundColor: isSelected ? selectedPrimaryColor : null,
+          backgroundColor: isSelected ? Colors.white : null,
+          shape: RoundedRectangleBorder(
+            borderRadius: const BorderRadius.all(
+              Radius.circular(20),
+            ),
+            side: BorderSide(color: selectedPrimaryColor),
+          ),
+        ),
+        child: const Text(
+          "Sign Up",
+          style: TextStyle(fontSize: 18),
+        ),
+      ),
+    );
+    Align a2 = Align(
+      alignment: Alignment.centerLeft,
+      /*widthFactor: 100,*/
+      child: ElevatedButton(
+        onPressed: () => changeState(true),
+        style: ElevatedButton.styleFrom(
+          fixedSize: const Size(120, 40),
+          foregroundColor: isSelected ? null : selectedPrimaryColor,
+          backgroundColor: isSelected ? null : Colors.white,
+          side: BorderSide(
+            color: selectedPrimaryColor,
+          ),
+          shape: RoundedRectangleBorder(
+            borderRadius: const BorderRadius.all(
+              Radius.circular(20),
+            ),
+            side: BorderSide(color: selectedPrimaryColor),
+          ),
+        ),
+        child: const Text(
+          "Sign In",
+          style: TextStyle(fontSize: 18),
+        ),
+      ),
+    );
+    return isSelected ? [a1, a2] : [a2, a1];
   }
 }

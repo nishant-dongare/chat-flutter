@@ -49,3 +49,4 @@ app.*.map.json
 # Manual
 /web
 /linux
+/android/

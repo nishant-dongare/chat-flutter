@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class WebSearchBar extends StatelessWidget {
-  const WebSearchBar({Key? key}) : super(key: key);
+  const WebSearchBar({super.key});
 
   @override
   Widget build(BuildContext context) {

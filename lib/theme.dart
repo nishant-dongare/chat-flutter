@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
 
-ThemeData theme = ThemeData(
+ThemeData lightTheme = ThemeData(
+  appBarTheme: const AppBarTheme(
+    backgroundColor: Colors.red,
+    foregroundColor: Colors.white,
+  ),
   tabBarTheme: const TabBarTheme(
-    //for Tabs2White
     labelColor: Colors.white,
+    unselectedLabelColor: Colors.white70,
+    indicatorColor: Colors.transparent,
+    dividerHeight: 0,
   ),
   primarySwatch: Colors.red,
   scaffoldBackgroundColor: Colors.red,
@@ -38,10 +44,20 @@ ThemeData theme = ThemeData(
 
 ThemeData darkTheme = ThemeData(
   primarySwatch: Colors.grey,
-  colorScheme: const ColorScheme.dark(
-    primary: Colors.white,
-    secondary: Colors.grey,
+  tabBarTheme: const TabBarTheme(
+    labelColor: Colors.white,
+    unselectedLabelColor: Colors.white70,
+    indicatorColor: Colors.transparent,
+    dividerHeight: 0,
   ),
+  colorScheme: ColorScheme.fromSeed(
+    brightness: Brightness.dark,
+    seedColor: Colors.black12,
+  ),
+  // colorScheme: const ColorScheme.dark(
+  //   primary:Color(0xffefb7ff),
+  //   secondary: Colors.grey,
+  // ),
   scaffoldBackgroundColor: Colors.grey[800],
   appBarTheme: AppBarTheme(
     backgroundColor: Colors.grey[800],

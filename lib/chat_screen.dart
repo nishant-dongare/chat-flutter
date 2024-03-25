@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hike/providers/UserCubit.dart';
 import 'package:hike/widgets/chat_body.dart';
 import 'package:hike/widgets/chat_input.dart';
-import 'package:provider/provider.dart';
-import 'package:hike/providers/web_provider.dart';
 import 'package:hike/widgets/avatar.dart';
 import 'package:hike/info.dart';
 
@@ -11,52 +11,47 @@ class ChatScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final index = BlocProvider.of<UserCubit>(context).index;
     return Scaffold(
-      appBar: chatAppBar(context),
+      appBar: AppBar(
+        leading: Row(
+          children: [
+            Expanded(
+              flex: 2,
+              child: IconButton(
+                iconSize: 15,
+                onPressed: () => Navigator.pop(context),
+                icon: const Icon(
+                  Icons.arrow_back_ios_new,
+                ),
+              ),
+            ),
+            Expanded(
+              flex: 3,
+              child: getAvatar(info[index]['profilePic'].toString()),
+            ),
+          ],
+        ),
+        titleSpacing: 10,
+        title: Text(
+          info[index]['name'].toString(),
+          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+        ),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.search),
+            onPressed: () {},
+          ),
+          IconButton(
+            icon: const Icon(Icons.more_vert),
+            onPressed: () {},
+          ),
+        ],
+      ),
       body: const ChatBody(),
       bottomNavigationBar: const InputBar(),
       extendBody: true,
       resizeToAvoidBottomInset: true,
-    );
-  }
-
-  AppBar chatAppBar(BuildContext context) {
-    var index = context.watch<WebProvider>().chatIndex;
-    return AppBar(
-      leading: Row(
-        children: [
-          Expanded(
-            flex: 2,
-            child: IconButton(
-              iconSize: 15,
-              onPressed: () => Navigator.pop(context),
-              icon: const Icon(
-                Icons.arrow_back_ios_new,
-              ),
-            ),
-          ),
-          Expanded(
-            flex: 3,
-            child: getAvatar(info[index]['profilePic'].toString()),
-            // ),
-          ),
-        ],
-      ),
-      titleSpacing: 10,
-      title: Text(
-        info[index]['name'].toString(),
-        style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-      ),
-      actions: [
-        IconButton(
-          icon: const Icon(Icons.search),
-          onPressed: () {},
-        ),
-        IconButton(
-          icon: const Icon(Icons.more_vert),
-          onPressed: () {},
-        ),
-      ],
     );
   }
 }

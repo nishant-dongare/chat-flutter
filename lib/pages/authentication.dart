@@ -8,6 +8,8 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passController = TextEditingController();
   bool isSelected = true;
 
   @override

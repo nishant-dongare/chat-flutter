@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hike/chat_list.dart';
-import 'package:hike/providers/web_provider.dart';
-import 'package:provider/provider.dart';
+import 'package:hike/providers/ThemeCubit.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -19,31 +19,33 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
+    // final themeCubit = BlocProvider.of<ThemeCubit>(context);
+
     return DefaultTabController(
       length: 3,
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.transparent,
+          // backgroundColor: Colors.transparent,
           title: const Text(
             'hi',
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
           ),
           actions: [
-            IconButton(
-              icon: context.watch<WebProvider>().getTheme
-                  ? const Icon(Icons.light_mode_sharp)
-                  : const Icon(Icons.dark_mode_sharp),
-              onPressed: () {
-                context.read<WebProvider>().setTheme();
-              },
-            ),
+            BlocBuilder<ThemeCubit, bool>(builder: (context, bool theme) {
+              return IconButton(
+                icon: theme
+                    ? const Icon(Icons.light_mode_sharp)
+                    : const Icon(Icons.dark_mode_sharp),
+                onPressed: () =>
+                    BlocProvider.of<ThemeCubit>(context).changeTheme(),
+              );
+            }),
             IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
             IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert)),
           ],
           elevation: 0,
           bottom: TabBar(
             tabs: tabs,
-            indicator: const BoxDecoration(color: Colors.transparent),
           ),
         ),
         body: TabBarView(

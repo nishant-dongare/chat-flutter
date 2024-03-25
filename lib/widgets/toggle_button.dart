@@ -69,9 +69,7 @@ class _ToggleButtonState extends State<ToggleButton> {
       alignment: Alignment.centerRight,
       widthFactor: 400,
       child: ElevatedButton(
-        onPressed: () {
-          changeState(false);
-        },
+        onPressed: () => changeState(false),
         style: ElevatedButton.styleFrom(
           fixedSize: const Size(120, 40),
           foregroundColor: isSelected ? selectedPrimaryColor : null,

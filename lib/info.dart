@@ -11,7 +11,7 @@ const info = [
     'message': 'This world shall know the PAIN',
     'time': '1:03 pm',
     'profilePic':
-        'https://media.cntraveler.com/photos/60596b398f4452dac88c59f8/16:9/w_3999,h_2249,c_limit/MtFuji-GettyImages-959111140.jpg',
+        "https://yt3.googleusercontent.com/4vRUFNZede35KI6LecS2pLJS5ZWXbnT-ht3kNFs9emt9VfG1D_DGZ414DnsjXSF-0kdm46FCjA=s176-c-k-c0x00ffffff-no-rj",
   },
   {
     'name': 'Lelouch vi Britannia',

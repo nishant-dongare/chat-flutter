@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:hike/providers/web_provider.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hike/providers/ThemeCubit.dart';
 
 class Topbar extends StatelessWidget {
   const Topbar({super.key});
 
   @override
   Widget build(BuildContext context) {
-    bool theme = context.watch<WebProvider>().getTheme;
-    Icon themeIcon = theme
+    final themeCubit = BlocProvider.of<ThemeCubit>(context);
+
+    Icon themeIcon = themeCubit.isDarkTheme
         ? const Icon(Icons.light_mode_sharp)
         : const Icon(Icons.dark_mode_sharp);
     return Container(
@@ -29,9 +30,7 @@ class Topbar extends StatelessWidget {
           const Spacer(),
           IconButton(
             icon: themeIcon,
-            onPressed: () {
-              context.read<WebProvider>().setTheme();
-            },
+            onPressed: () => themeCubit.changeTheme(),
           ),
           IconButton(onPressed: () {}, icon: const Icon(Icons.comment)),
           IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert)),

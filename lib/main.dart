@@ -1,15 +1,22 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hike/firebase_options.dart';
 import 'package:hike/layout.dart';
-import 'package:hike/pages/login.dart';
-import 'package:hike/providers/web_provider.dart';
+import 'package:hike/pages/authentication.dart';
+import 'package:hike/providers/ThemeCubit.dart';
+import 'package:hike/providers/UserCubit.dart';
 import 'package:hike/theme.dart';
-import 'package:hike/widgets/toggle_button.dart';
-import 'package:provider/provider.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(
-    MultiProvider(
-      providers: [ChangeNotifierProvider(create: (_) => WebProvider())],
+    MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (_) => ThemeCubit()),
+        BlocProvider(create: (_) => UserCubit())
+      ],
       child: const MyApp(),
     ),
   );
@@ -20,20 +27,21 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'DN',
-      theme: theme,
-      darkTheme: darkTheme,
-      themeMode: context.watch<WebProvider>().getTheme
-          ? ThemeMode.dark
-          : ThemeMode.light,
-      initialRoute: 'login',
-      routes: {
-        '/': (context) => const ResponsiveLayout(),
-        'login': (context) => const Login(),
-        'test': (context) => const ToggleButton(),
-      },
-    );
+    return BlocBuilder(
+        bloc: BlocProvider.of<ThemeCubit>(context),
+        builder: (BuildContext context, bool theme) {
+          return MaterialApp(
+            debugShowCheckedModeBanner: false,
+            title: 'DN',
+            theme: lightTheme,
+            darkTheme: darkTheme,
+            themeMode: theme ? ThemeMode.dark : ThemeMode.light,
+            initialRoute: 'login',
+            routes: {
+              '/': (context) => const ResponsiveLayout(),
+              'login': (context) => const Login(),
+            },
+          );
+        });
   }
 }

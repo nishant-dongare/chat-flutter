@@ -50,3 +50,4 @@ app.*.map.json
 /web
 /linux
 /android/
+/lib/firebase_options.dart

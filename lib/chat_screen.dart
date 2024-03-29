@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hike/providers/UserCubit.dart';
+import 'package:hike/providers/chats_bloc/chats_bloc.dart';
 import 'package:hike/widgets/chat_body.dart';
 import 'package:hike/widgets/chat_input.dart';
 import 'package:hike/widgets/avatar.dart';
@@ -11,7 +11,8 @@ class ChatScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final index = BlocProvider.of<UserCubit>(context).index;
+    final index =
+        BlocProvider.of<ChatScreenBloc>(context).state.chatScreenIndex;
     return Scaffold(
       appBar: AppBar(
         leading: Row(

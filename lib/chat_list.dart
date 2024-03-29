@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hike/chat_screen.dart';
 import 'package:hike/info.dart';
-import 'package:hike/providers/UserCubit.dart';
+import 'package:hike/providers/chats_bloc/chats_bloc.dart';
 import 'package:hike/widgets/avatar.dart';
 
 class ChatList extends StatelessWidget {
@@ -14,7 +14,7 @@ class ChatList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final userCubit = BlocProvider.of<UserCubit>(context);
+    final chatBloc = BlocProvider.of<ChatScreenBloc>(context);
 
     return Container(
       decoration: BoxDecoration(
@@ -26,7 +26,8 @@ class ChatList extends StatelessWidget {
       ),
       child: Padding(
         padding: const EdgeInsets.only(top: 10),
-        child: BlocBuilder<UserCubit, int>(builder: (context, state) {
+        child:
+            BlocBuilder<ChatScreenBloc, ChatState>(builder: (context, state) {
           return ListView.builder(
             itemCount: info.length,
             controller: _scrollController,
@@ -36,7 +37,7 @@ class ChatList extends StatelessWidget {
                   if (index != 0) const Divider(indent: 85),
                   InkWell(
                     onTap: () {
-                      userCubit.setIndex(index);
+                      chatBloc.add(ChatScreenIndexEvent(index));
                       if (!webView) {
                         Navigator.push(
                           context,
@@ -49,6 +50,8 @@ class ChatList extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.only(bottom: 8.0),
                       child: ListTile(
+                        leading:
+                            getAvatar(info[index]['profilePic'].toString()),
                         title: Text(info[index]['name'].toString(),
                             style: const TextStyle(fontSize: 18)),
                         subtitle: Padding(
@@ -56,8 +59,6 @@ class ChatList extends StatelessWidget {
                           child: Text(info[index]['message'].toString(),
                               style: const TextStyle(fontSize: 14)),
                         ),
-                        leading:
-                            getAvatar(info[index]['profilePic'].toString()),
                         trailing: Text(
                           info[index]['time'].toString(),
                           style: const TextStyle(

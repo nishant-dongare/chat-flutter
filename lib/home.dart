@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hike/chat_list.dart';
-import 'package:hike/providers/ThemeCubit.dart';
+import 'package:hike/providers/theme_cubit.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -37,7 +37,7 @@ class _HomeState extends State<Home> {
                     ? const Icon(Icons.light_mode_sharp)
                     : const Icon(Icons.dark_mode_sharp),
                 onPressed: () =>
-                    BlocProvider.of<ThemeCubit>(context).changeTheme(),
+                    BlocProvider.of<ThemeCubit>(context).toggleTheme(),
               );
             }),
             IconButton(onPressed: () {}, icon: const Icon(Icons.search)),

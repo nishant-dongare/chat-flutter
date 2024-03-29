@@ -1,4 +1,10 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hike/core/result.dart';
+import 'package:hike/providers/auth_cubit.dart';
+import 'package:hike/widgets/alert.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -8,6 +14,7 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  late final authCubit;
   TextEditingController emailController = TextEditingController();
   TextEditingController passController = TextEditingController();
   bool isSelected = true;
@@ -79,7 +86,8 @@ class _LoginState extends State<Login> {
       children: [
         SizedBox(
           height: 50,
-          child: TextField(
+          child: TextFormField(
+            controller: emailController,
             decoration: InputDecoration(
               label: const Text("Email"),
               border: OutlineInputBorder(
@@ -88,12 +96,17 @@ class _LoginState extends State<Login> {
                 borderRadius: BorderRadius.circular(20),
               ),
             ),
+            validator: (value) {
+              if (value!.isEmpty) return 'pls Enter text';
+              return null;
+            },
           ),
         ),
         const SizedBox(height: 20),
         SizedBox(
           height: 50,
-          child: TextField(
+          child: TextFormField(
+            controller: passController,
             decoration: InputDecoration(
               label: const Text("Password"),
               border: OutlineInputBorder(
@@ -126,8 +139,15 @@ class _LoginState extends State<Login> {
             height: 50,
             width: 140,
             child: ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/');
+              onPressed: () async {
+                if (!context.mounted) return;
+                Result result = await authCubit.login(
+                    emailController.text, passController.text);
+                if (result.getResultStatus) {
+                  Navigator.pushNamed(context, '/');
+                } else {
+                  alert(context: context, message: result.getError);
+                }
               },
               style: ElevatedButton.styleFrom(
                 shape: RoundedRectangleBorder(
@@ -146,11 +166,13 @@ class _LoginState extends State<Login> {
   }
 
   Widget register() {
+    TextEditingController usernameController = TextEditingController();
     return Column(
       children: [
         SizedBox(
           height: 50,
-          child: TextField(
+          child: TextFormField(
+            controller: usernameController,
             decoration: InputDecoration(
               label: const Text("Username"),
               border: OutlineInputBorder(
@@ -165,6 +187,7 @@ class _LoginState extends State<Login> {
         SizedBox(
           height: 50,
           child: TextField(
+            controller: emailController,
             decoration: InputDecoration(
               label: const Text("Email"),
               border: OutlineInputBorder(
@@ -178,7 +201,8 @@ class _LoginState extends State<Login> {
         const SizedBox(height: 20),
         SizedBox(
           height: 50,
-          child: TextField(
+          child: TextFormField(
+            controller: passController,
             decoration: InputDecoration(
               label: const Text("Password"),
               border: OutlineInputBorder(
@@ -196,8 +220,17 @@ class _LoginState extends State<Login> {
             height: 50,
             width: 140,
             child: ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/');
+              onPressed: () async {
+                if (!context.mounted) return;
+                Result result = await authCubit.register(
+                    usernameController.text,
+                    emailController.text,
+                    passController.text);
+                if (result.getResultStatus) {
+                  Navigator.pushReplacementNamed(context, '/');
+                } else {
+                  alert(context: context, message: result.getError);
+                }
               },
               style: ElevatedButton.styleFrom(
                 shape: RoundedRectangleBorder(
@@ -273,5 +306,18 @@ class _LoginState extends State<Login> {
       ),
     );
     return isSelected ? [a1, a2] : [a2, a1];
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    authCubit = BlocProvider.of<AuthCubit>(context);
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    emailController.dispose();
+    passController.dispose();
   }
 }

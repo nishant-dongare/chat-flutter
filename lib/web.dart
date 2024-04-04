@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hike/chat_list.dart';
+import 'package:hike/chat_contact_list.dart';
 import 'package:hike/web_chat_screen.dart';
 import 'package:hike/widgets/topbar.dart';
 import 'package:hike/widgets/web_searchbar.dart';

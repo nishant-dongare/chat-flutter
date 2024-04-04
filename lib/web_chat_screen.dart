@@ -14,22 +14,21 @@ class WebChatScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     log("ChatScreen Initiated");
-    return BlocBuilder<ChatScreenBloc, ChatState>(
-        buildWhen: (prev, state) =>
-            prev.chatScreenIndex != state.chatScreenIndex,
+    return BlocBuilder<ChatStateBloc, ChatState>(
+        buildWhen: (prev, state) => prev.chatIndex != state.chatIndex,
         builder: (BuildContext context, state) {
-          log("ChatScreen builder ${state.chatScreenIndex}");
+          log("ChatScreen builder ${state.chatIndex}");
 
           return Column(
             children: [
               AppBar(
                 leading: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: getAvatar(
-                      info[state.chatScreenIndex]['profilePic'].toString()),
+                  child:
+                      getAvatar(info[state.chatIndex]['profilePic'].toString()),
                 ),
                 title: Text(
-                  info[state.chatScreenIndex]['name'].toString(),
+                  info[state.chatIndex]['name'].toString(),
                   style: const TextStyle(
                       fontWeight: FontWeight.bold, fontSize: 20),
                 ),

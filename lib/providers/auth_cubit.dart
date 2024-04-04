@@ -20,7 +20,10 @@ class AuthCubit extends Cubit<User?> {
       await credential.user?.updateDisplayName(username);
       log(credential.user!.uid);
       await FirebaseUsers.createUser(
-          uid: credential.user!.uid, email: email, username: username);
+          uid: credential.user!.uid,
+          email: email,
+          username: username,
+          photoUrl: credential.user?.photoURL ?? '');
       emit(credential.user!);
       return Result.success();
     } on FirebaseAuthException catch (e) {

@@ -11,8 +11,7 @@ class ChatScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final index =
-        BlocProvider.of<ChatScreenBloc>(context).state.chatScreenIndex;
+    final index = BlocProvider.of<ChatStateBloc>(context).state.chatIndex;
     return Scaffold(
       appBar: AppBar(
         leading: Row(

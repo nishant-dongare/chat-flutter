@@ -14,7 +14,7 @@ class ChatList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final chatBloc = BlocProvider.of<ChatScreenBloc>(context);
+    final chatBloc = BlocProvider.of<ChatStateBloc>(context);
 
     return Container(
       decoration: BoxDecoration(
@@ -26,8 +26,7 @@ class ChatList extends StatelessWidget {
       ),
       child: Padding(
         padding: const EdgeInsets.only(top: 10),
-        child:
-            BlocBuilder<ChatScreenBloc, ChatState>(builder: (context, state) {
+        child: BlocBuilder<ChatStateBloc, ChatState>(builder: (context, state) {
           return ListView.builder(
             itemCount: info.length,
             controller: _scrollController,
@@ -37,7 +36,8 @@ class ChatList extends StatelessWidget {
                   if (index != 0) const Divider(indent: 85),
                   InkWell(
                     onTap: () {
-                      chatBloc.add(ChatScreenIndexEvent(index));
+                      if (chatBloc.state.chatIndex == index) return;
+                      chatBloc.add(ChangeChatIndexEvent(index));
                       if (!webView) {
                         Navigator.push(
                           context,

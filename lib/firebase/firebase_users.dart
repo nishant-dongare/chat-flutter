@@ -10,11 +10,13 @@ class FirebaseUsers {
   static FutureOr<void> createUser(
       {required String uid,
       required String email,
-      required String username}) async {
+      required String username,
+      required String photoUrl}) async {
     final Map<String, String> user = {
       "uid": uid,
       "email": email,
       "username": username,
+      "photoUrl": photoUrl,
     };
 
     try {

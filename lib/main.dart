@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hike/firebase_options.dart';
 import 'package:hike/layout.dart';
 import 'package:hike/pages/authentication.dart';
-import 'package:hike/providers/auth_cubit.dart';
 import 'package:hike/providers/chats_bloc/chats_bloc.dart';
 import 'package:hike/providers/theme_cubit.dart';
 import 'package:hike/theme.dart';
@@ -16,8 +15,7 @@ Future<void> main() async {
     MultiBlocProvider(
       providers: [
         BlocProvider(create: (_) => ThemeCubit()),
-        BlocProvider(create: (_) => AuthCubit()),
-        BlocProvider(create: (_) => ChatScreenBloc()),
+        BlocProvider(create: (_) => ChatStateBloc()),
       ],
       child: const MyApp(),
     ),

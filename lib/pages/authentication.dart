@@ -1,7 +1,6 @@
 // ignore_for_file: use_build_context_synchronously
 
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hike/core/result.dart';
 import 'package:hike/providers/auth_cubit.dart';
 import 'package:hike/widgets/alert.dart';
@@ -14,9 +13,9 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  late final authCubit;
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passController = TextEditingController();
+  late final AuthCubit _authCubit;
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passController = TextEditingController();
   bool isSelected = true;
 
   @override
@@ -87,7 +86,7 @@ class _LoginState extends State<Login> {
         SizedBox(
           height: 50,
           child: TextFormField(
-            controller: emailController,
+            controller: _emailController,
             decoration: InputDecoration(
               label: const Text("Email"),
               border: OutlineInputBorder(
@@ -106,7 +105,7 @@ class _LoginState extends State<Login> {
         SizedBox(
           height: 50,
           child: TextFormField(
-            controller: passController,
+            controller: _passController,
             decoration: InputDecoration(
               label: const Text("Password"),
               border: OutlineInputBorder(
@@ -141,8 +140,8 @@ class _LoginState extends State<Login> {
             child: ElevatedButton(
               onPressed: () async {
                 if (!context.mounted) return;
-                Result result = await authCubit.login(
-                    emailController.text, passController.text);
+                Result result = await _authCubit.login(
+                    _emailController.text, _passController.text);
                 if (result.getResultStatus) {
                   Navigator.pushNamed(context, '/');
                 } else {
@@ -187,7 +186,7 @@ class _LoginState extends State<Login> {
         SizedBox(
           height: 50,
           child: TextField(
-            controller: emailController,
+            controller: _emailController,
             decoration: InputDecoration(
               label: const Text("Email"),
               border: OutlineInputBorder(
@@ -202,7 +201,7 @@ class _LoginState extends State<Login> {
         SizedBox(
           height: 50,
           child: TextFormField(
-            controller: passController,
+            controller: _passController,
             decoration: InputDecoration(
               label: const Text("Password"),
               border: OutlineInputBorder(
@@ -222,10 +221,10 @@ class _LoginState extends State<Login> {
             child: ElevatedButton(
               onPressed: () async {
                 if (!context.mounted) return;
-                Result result = await authCubit.register(
+                Result result = await _authCubit.register(
                     usernameController.text,
-                    emailController.text,
-                    passController.text);
+                    _emailController.text,
+                    _passController.text);
                 if (result.getResultStatus) {
                   Navigator.pushReplacementNamed(context, '/');
                 } else {
@@ -311,13 +310,14 @@ class _LoginState extends State<Login> {
   @override
   void initState() {
     super.initState();
-    authCubit = BlocProvider.of<AuthCubit>(context);
+    _authCubit = AuthCubit();
   }
 
   @override
   void dispose() {
     super.dispose();
-    emailController.dispose();
-    passController.dispose();
+    _emailController.dispose();
+    _passController.dispose();
+    _authCubit.close();
   }
 }

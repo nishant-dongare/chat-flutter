@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hike/chat_list.dart';
+import 'package:hike/chat_contact_list.dart';
 import 'package:hike/providers/theme_cubit.dart';
 
 class Home extends StatefulWidget {
